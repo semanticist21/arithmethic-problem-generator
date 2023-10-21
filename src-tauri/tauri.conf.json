@@ -56,10 +56,12 @@
     "windows": [
       {
         "fullscreen": false,
-        "height": 600,
+        "height": 540,
+        "minHeight": 540,
         "resizable": true,
         "title": "arithmethic-generator",
-        "width": 800
+        "width": 960,
+        "minWidth": 960
       }
     ]
   }

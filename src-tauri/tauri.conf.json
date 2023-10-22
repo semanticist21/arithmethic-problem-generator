@@ -4,7 +4,8 @@
     "beforeBuildCommand": "pnpm run build",
     "beforeDevCommand": "pnpm run dev",
     "devPath": "http://localhost:50540",
-    "distDir": "../public"
+    "distDir": "../public",
+    "withGlobalTauri": true
   },
   "package": {
     "productName": "arithmethic-problem-generator",

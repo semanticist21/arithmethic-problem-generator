@@ -2,7 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-// make srue that these configurations match the ones in tauri.conf.json
+@import "../styles/main_title.scss";
+
+// make sure that these configurations match the ones in tauri.conf.json
 $default-min-width: 960px;
 $default-min-height: 540px;
 

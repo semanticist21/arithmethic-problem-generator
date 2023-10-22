@@ -1,7 +1,7 @@
 import { FC, PropsWithChildren } from "react";
 
 const MainWrapper: FC<PropsWithChildren> = ({ children }) => {
-  return <div className="w-c1280 min-w-c1280">{children}</div>;
+  return <div className="h-full">{children}</div>;
 };
 
 export default MainWrapper;

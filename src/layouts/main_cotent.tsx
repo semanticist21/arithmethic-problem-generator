@@ -1,7 +1,7 @@
 import { FC } from "react";
 
 export const MainContent: FC = () => {
-  return <div></div>;
+  return <div>ddddd</div>;
 };
 
 export default MainContent;

@@ -1,12 +1,12 @@
 import MainContent from "@/layouts/main_cotent";
-import MainTitlebar from "@/layouts/main_header";
+import MainTitle from "@/layouts/main_titlebar";
 import MainWrapper from "@/layouts/main_wrapper";
 import { FC } from "react";
 
 const Home: FC = () => {
   return (
     <MainWrapper>
-      <MainTitlebar />
+      <MainTitle />
       <MainContent />
     </MainWrapper>
   );

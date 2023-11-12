@@ -27,8 +27,8 @@ const MainTitle = () => {
   useWindowListener("titlebar-close", "click", appWindow?.close);
 
   // dynamic focus change
-  const addAppUnfocusListener = () => setDynamicBg(theme.palette.grey[900]);
-  const addAppFocusDownListener = () => setDynamicBg(theme.palette.grey[800]);
+  const addAppUnfocusListener = () => setDynamicBg(theme.palette.grey[700]);
+  const addAppFocusDownListener = () => setDynamicBg(theme.palette.grey[900]);
 
   useTauriEvent("blur", addAppUnfocusListener);
   useTauriEvent("focus", addAppFocusDownListener);

@@ -2,5 +2,10 @@
     "typescript.tsdk": "node_modules/typescript/lib",
     "typescript.enablePromptUseWorkspaceTsdk": true,
     "javascript.suggest.paths": false,
-    "typescript.suggest.paths": false
+    "typescript.suggest.paths": false,
+    "rust-analyzer.linkedProjects": [
+        ".\\src-tauri\\Cargo.toml",
+        ".\\src-tauri\\Cargo.toml",
+        ".\\src-tauri\\Cargo.toml"
+    ]
 }

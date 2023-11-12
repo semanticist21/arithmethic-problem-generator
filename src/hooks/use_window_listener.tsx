@@ -1,5 +1,11 @@
 import { useEffect } from "react";
 
+/**
+ *
+ * @param bindId html element id
+ * @param eventType window event type
+ * @param callback function bind to event
+ */
 const useWindowListener = <K extends keyof HTMLElementEventMap>(
   bindId: string,
   eventType: K,

@@ -100,16 +100,7 @@
         "height": 540,
         "minHeight": 540,
         "resizable": true,
-        "visible": false
-      },
-      {
-        "fullscreen": false,
-        "decorations": false,
-        "width": 960,
-        "height": 540,
-        "url": "splashscreen.html",
-        "label": "splashscreen",
-        "resizable": false
+        "visible": true
       }
     ]
   }

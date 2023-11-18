@@ -7,5 +7,8 @@
         ".\\src-tauri\\Cargo.toml",
         ".\\src-tauri\\Cargo.toml",
         ".\\src-tauri\\Cargo.toml"
+    ],
+    "cSpell.words": [
+        "Tauri"
     ]
 }

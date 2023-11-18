@@ -1,8 +1,12 @@
 "use client";
 
 import { useWindowListener } from "@hooks/use_window_listener";
-import { useTauriEvent, useTauriWindow } from "@hooks/use_tauri";
-import { useRef, useState } from "react";
+import {
+  useTauriEvent,
+  useTauriVersion,
+  useTauriWindow,
+} from "@hooks/use_tauri";
+import { useEffect, useRef, useState } from "react";
 
 import {
   CloseTwoTone,
@@ -13,10 +17,12 @@ import { Box, Button } from "@mui/material";
 import { SxProps, useTheme } from "@mui/material/styles";
 import Exam from "@assets/svgs/exam.svg";
 
+// layout styles defined in 'main_title.scss'
 const MainTitle = () => {
   // state
   const theme = useTheme();
   const [dynamicBg, setDynamicBg] = useState<string>(theme.palette.grey[900]);
+  const version = useTauriVersion();
 
   const boxRef = useRef<HTMLDivElement>(null);
   const appWindow = useTauriWindow();
@@ -27,10 +33,10 @@ const MainTitle = () => {
   useWindowListener("titlebar-close", "click", appWindow?.close);
 
   // dynamic focus change
-  const addAppUnfocusListener = () => setDynamicBg(theme.palette.grey[700]);
+  const addAppBlurListener = () => setDynamicBg(theme.palette.grey[700]);
   const addAppFocusDownListener = () => setDynamicBg(theme.palette.grey[900]);
 
-  useTauriEvent("blur", addAppUnfocusListener);
+  useTauriEvent("blur", addAppBlurListener);
   useTauriEvent("focus", addAppFocusDownListener);
 
   // styles
@@ -48,6 +54,18 @@ const MainTitle = () => {
     },
   };
 
+  const genBtn = (id: string, icon: React.ReactNode) => () => {
+    return (
+      <Button id={id} size="small" variant="text" sx={buttonStyle}>
+        {icon}
+      </Button>
+    );
+  };
+
+  const Minimize = genBtn("titlebar-minimize", <HorizontalRuleTwoTone />);
+  const Maximize = genBtn("titlebar-maximize", <CropSquareTwoTone />);
+  const Close = genBtn("titlebar-close", <CloseTwoTone />);
+
   return (
     <Box
       id="titlebar"
@@ -56,43 +74,23 @@ const MainTitle = () => {
       ref={boxRef}
       sx={titleBarStyle}
     >
-      <div className="flex items-center transition-all duration-300 hover:opacity-80">
+      <div className="flex items-center cursor-default">
         <div className="w-4" />
         <Exam />
         <div className="w-2" />
-        <span className="font-semibold text-sm text-gray-100">
-          주산 문제 생성기
-        </span>
+        <p className="flex">
+          <span className="font-semibold text-sm text-gray-100">
+            주산 문제 생성기
+          </span>
+          <span className="w-1" />
+          <i className="text-xs self-end text-gray-400">{version}</i>
+        </p>
         <div className="w-2" />
-        <i className="text-xs self-end mb-[0.375rem] text-gray-400">1.0.0v</i>
       </div>
       <div className="ml-auto">
-        <Button
-          id="titlebar-minimize"
-          size="small"
-          variant="text"
-          sx={buttonStyle}
-        >
-          <HorizontalRuleTwoTone />
-        </Button>
-
-        <Button
-          id="titlebar-maximize"
-          size="small"
-          variant="text"
-          sx={buttonStyle}
-        >
-          <CropSquareTwoTone />
-        </Button>
-
-        <Button
-          id="titlebar-close"
-          size="small"
-          variant="text"
-          sx={buttonStyle}
-        >
-          <CloseTwoTone />
-        </Button>
+        <Minimize />
+        <Maximize />
+        <Close />
       </div>
     </Box>
   );

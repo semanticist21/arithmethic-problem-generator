@@ -1,4 +1,8 @@
-export const handleIsTauri = () => {
+/**
+ *
+ * @returns window validity
+ */
+export const handleIsTauriWindowLoaded = () => {
   return Boolean(
     typeof window !== "undefined" &&
       window !== undefined &&

@@ -39,3 +39,19 @@ export const useTauriWindow = () => {
   useEffect(() => setupWindowAfterLoad(), []);
   return appWindow;
 };
+
+/**
+ *
+ * @returns tauri version
+ */
+export const useTauriVersion = () => {
+  const [version, setVersion] = useState<string>("");
+
+  useEffect(() => {
+    import("@tauri-apps/api").then((imported) =>
+      imported.app.getVersion().then((v) => setVersion(v))
+    );
+  }, []);
+
+  return version;
+};

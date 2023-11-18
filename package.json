@@ -16,6 +16,7 @@
     "@mui/icons-material": "^5.14.18",
     "@mui/material": "^5.14.18",
     "@tauri-apps/api": "^1.5.1",
+    "clsx": "^2.0.0",
     "css-loader": "^6.8.1",
     "next": "13.5.4",
     "node-sass": "^9.0.0",

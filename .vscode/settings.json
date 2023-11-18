@@ -9,6 +9,7 @@
         ".\\src-tauri\\Cargo.toml"
     ],
     "cSpell.words": [
+        "clsx",
         "Tauri"
     ]
 }

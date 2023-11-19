@@ -5,7 +5,7 @@ import {
   useTauriVersion,
   useTauriWindow,
 } from "@hooks/use_tauri";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import {
   CloseTwoTone,
@@ -61,19 +61,24 @@ const MainTitle = () => {
 
   // window control
   const minimize = () => appWindow?.minimize();
-  const maximize = () => appWindow?.maximize();
-  const unMaximize = () => appWindow?.unmaximize();
+
+  //FIXME
+  const maximize = () => {
+    appWindow?.maximize();
+    setIsMaximized(true);
+  };
+
+  const unMaximize = () => {
+    appWindow?.unmaximize();
+    setIsMaximized(false);
+  };
+
   const close = () => appWindow?.close();
 
   const Minimize = genBtn(<HorizontalRuleTwoTone />, minimize);
   const Maximize = genBtn(<CropSquareTwoTone />, maximize);
   const UnMaximize = genBtn(<CloseFullscreenTwoToneIcon />, unMaximize);
   const Close = genBtn(<CloseTwoTone />, close);
-
-  //FIXME
-  appWindow?.isMaximized().then((maximized) => {
-    if (maximized !== isMaximized) setIsMaximized(maximized);
-  });
 
   return (
     <Box

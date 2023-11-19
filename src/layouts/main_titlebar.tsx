@@ -1,12 +1,11 @@
 "use client";
 
-import { useWindowListener } from "@hooks/use_window_listener";
 import {
   useTauriEvent,
   useTauriVersion,
   useTauriWindow,
 } from "@hooks/use_tauri";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 
 import {
   CloseTwoTone,
@@ -16,6 +15,7 @@ import {
 import { Box, Button } from "@mui/material";
 import { SxProps, useTheme } from "@mui/material/styles";
 import Exam from "@assets/svgs/exam.svg";
+import CloseFullscreenTwoToneIcon from "@mui/icons-material/CloseFullscreenTwoTone";
 
 // layout styles defined in 'main_title.scss'
 const MainTitle = () => {
@@ -27,10 +27,7 @@ const MainTitle = () => {
   const boxRef = useRef<HTMLDivElement>(null);
   const appWindow = useTauriWindow();
 
-  // bind window events
-  useWindowListener("titlebar-minimize", "click", appWindow?.minimize);
-  useWindowListener("titlebar-maximize", "click", appWindow?.toggleMaximize);
-  useWindowListener("titlebar-close", "click", appWindow?.close);
+  const [isMaximized, setIsMaximized] = useState<boolean>(false);
 
   // dynamic focus change
   const addAppBlurListener = () => setDynamicBg(theme.palette.grey[700]);
@@ -54,17 +51,29 @@ const MainTitle = () => {
     },
   };
 
-  const genBtn = (id: string, icon: React.ReactNode) => () => {
+  const genBtn = (icon: React.ReactNode, callback: () => void) => () => {
     return (
-      <Button id={id} size="small" variant="text" sx={buttonStyle}>
+      <Button size="small" variant="text" sx={buttonStyle} onClick={callback}>
         {icon}
       </Button>
     );
   };
 
-  const Minimize = genBtn("titlebar-minimize", <HorizontalRuleTwoTone />);
-  const Maximize = genBtn("titlebar-maximize", <CropSquareTwoTone />);
-  const Close = genBtn("titlebar-close", <CloseTwoTone />);
+  // window control
+  const minimize = () => appWindow?.minimize();
+  const maximize = () => appWindow?.maximize();
+  const unMaximize = () => appWindow?.unmaximize();
+  const close = () => appWindow?.close();
+
+  const Minimize = genBtn(<HorizontalRuleTwoTone />, minimize);
+  const Maximize = genBtn(<CropSquareTwoTone />, maximize);
+  const UnMaximize = genBtn(<CloseFullscreenTwoToneIcon />, unMaximize);
+  const Close = genBtn(<CloseTwoTone />, close);
+
+  //FIXME
+  appWindow?.isMaximized().then((maximized) => {
+    if (maximized !== isMaximized) setIsMaximized(maximized);
+  });
 
   return (
     <Box
@@ -89,7 +98,7 @@ const MainTitle = () => {
       </div>
       <div className="ml-auto">
         <Minimize />
-        <Maximize />
+        {isMaximized ? <UnMaximize /> : <Maximize />}
         <Close />
       </div>
     </Box>

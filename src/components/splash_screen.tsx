@@ -10,7 +10,7 @@ export const SplashScreen: FC<SplashScreenProps> = ({ isShow }) => {
   return (
     <div
       className={clsx(
-        "absolute flex flex-col w-full h-full items-center justify-center bg-black",
+        "absolute flex flex-col w-full h-full items-center justify-center",
         isShow ? "" : "hidden"
       )}
     >

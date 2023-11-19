@@ -5,8 +5,8 @@ $base-height: 32rem;
 $default-min-width: $base-width;
 $default-min-height: $base-height;
 
-$default-width: $base-width;
-$default-height: $base-height;
+$default-width: 100%;
+$default-height: 100%;
 
 html,
 body,
@@ -18,4 +18,5 @@ body > div {
   height: $default-height;
 
   user-select: none;
+  margin: 0;
 }

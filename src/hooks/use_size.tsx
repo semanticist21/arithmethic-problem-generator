@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useTauriWindow } from "./use_tauri";
 
 /**
  *
@@ -8,11 +9,13 @@ import { useEffect, useState } from "react";
  */
 export const useTitlebarHeight = () => {
   const [height, setHeight] = useState<number>(0);
-  //FIXME
+  const appWindow = useTauriWindow();
   useEffect(() => {
-    if (!document) return;
+    if (!appWindow) return;
+
     const titleBarHeight = document.getElementById("titlebar")?.clientHeight;
-  }, [document]);
+    setHeight(titleBarHeight || 0);
+  }, [appWindow]);
 
   return height;
 };

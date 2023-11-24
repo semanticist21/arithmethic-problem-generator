@@ -8,7 +8,7 @@ import { Keys, EventTypes } from "types/tauri";
 /**
  *
  * @param type tauri event type
- * @param callback function bind to event
+ * @param callback function to bind for the event
  */
 export const useTauriEvent = (
   type: Keys<typeof EventTypes>,
@@ -41,7 +41,7 @@ export const useTauriWindow = () => {
 };
 
 /**
- *
+ * @description get tauri version, located in Cargo.toml
  * @returns tauri version
  */
 export const useTauriVersion = () => {

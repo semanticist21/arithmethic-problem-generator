@@ -11,7 +11,7 @@ const RestoreWindowIcon: FC<RestoreWindowIconProps> = ({ bgColor }) => {
       <div className="absolute top-2.5 left-4 w-3.5 h-3.5 rounded-sm border-2 border-[#E3F2FD]" />
       <div
         className={clsx(
-          "absolute w-3.5 h-3.5 rounded-sm border-2 border-[#E3F2FD]",
+          "absolute top-3.5 left-3 w-3.5 h-3.5 rounded-sm border-2 border-[#E3F2FD]",
           `bg-${bgColor}`
         )}
         style={{ backgroundColor: bgColor }}

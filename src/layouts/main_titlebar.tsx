@@ -6,7 +6,6 @@ import {
   useTauriWindow,
 } from "@hooks/use_tauri";
 import { useEffect, useRef, useState } from "react";
-
 import {
   CloseTwoTone,
   CropSquareTwoTone,
@@ -15,7 +14,8 @@ import {
 import { Box, Button } from "@mui/material";
 import { SxProps, useTheme } from "@mui/material/styles";
 import Exam from "@assets/svgs/exam.svg";
-import CloseFullscreenTwoToneIcon from "@mui/icons-material/CloseFullscreenTwoTone";
+import { APP_NAME } from "consts/consts";
+import RestoreWindowIcon from "components/molecule/restore_window_icon";
 
 // layout styles defined in 'main_title.scss'
 const MainTitle = () => {
@@ -26,6 +26,8 @@ const MainTitle = () => {
 
   const boxRef = useRef<HTMLDivElement>(null);
   const appWindow = useTauriWindow();
+
+  const [isWindowMaximized, setIsWindowMaximized] = useState<boolean>(false);
 
   // dynamic focus change
   const addAppBlurListener = () => setDynamicBg(theme.palette.grey[700]);
@@ -59,16 +61,34 @@ const MainTitle = () => {
 
   // window control
   const minimize = () => appWindow?.minimize();
-
-  //FIXME
   const maximize = () => appWindow?.maximize();
   const unMaximize = () => appWindow?.unmaximize();
   const close = () => appWindow?.close();
 
   const Minimize = genBtn(<HorizontalRuleTwoTone />, minimize);
   const Maximize = genBtn(<CropSquareTwoTone />, maximize);
-  const UnMaximize = genBtn(<CloseFullscreenTwoToneIcon />, unMaximize);
+  const UnMaximize = genBtn(
+    <RestoreWindowIcon bgColor={dynamicBg} />,
+    unMaximize
+  );
   const Close = genBtn(<CloseTwoTone />, close);
+
+  // use effects
+  // bind resize event
+  const bindResizeEvent = () => {
+    appWindow?.isMaximized().then((flag) => {
+      if (flag) setIsWindowMaximized(true);
+    });
+
+    appWindow?.isMaximized().then((flag) => {
+      if (!flag) setIsWindowMaximized(false);
+    });
+  };
+
+  // bind resize event in the first time
+  useEffect(() => {
+    if (appWindow) appWindow.onResized(bindResizeEvent);
+  }, [appWindow]);
 
   return (
     <Box
@@ -84,7 +104,7 @@ const MainTitle = () => {
         <div className="w-2" />
         <p className="flex">
           <span className="font-semibold text-sm text-gray-100">
-            주산 문제 생성기
+            {APP_NAME}
           </span>
           <span className="w-1" />
           <i className="text-xs self-end text-gray-400">{version}</i>
@@ -93,7 +113,7 @@ const MainTitle = () => {
       </div>
       <div className="ml-auto">
         <Minimize />
-        {true ? <UnMaximize /> : <Maximize />}
+        {isWindowMaximized ? <UnMaximize /> : <Maximize />}
         <Close />
       </div>
     </Box>

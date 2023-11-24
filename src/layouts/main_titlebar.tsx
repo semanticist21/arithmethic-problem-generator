@@ -68,7 +68,10 @@ const MainTitle = () => {
   const Minimize = genBtn(<HorizontalRuleTwoTone />, minimize);
   const Maximize = genBtn(<CropSquareTwoTone />, maximize);
   const UnMaximize = genBtn(
-    <RestoreWindowIcon bgColor={dynamicBg} />,
+    <RestoreWindowIcon
+      bgColor={dynamicBg}
+      hoverColor={theme.palette.grey[700]}
+    />,
     unMaximize
   );
   const Close = genBtn(<CloseTwoTone />, close);

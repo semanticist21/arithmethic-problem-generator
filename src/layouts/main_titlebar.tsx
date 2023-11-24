@@ -77,11 +77,7 @@ const MainTitle = () => {
   // bind resize event
   const bindResizeEvent = () => {
     appWindow?.isMaximized().then((flag) => {
-      if (flag) setIsWindowMaximized(true);
-    });
-
-    appWindow?.isMaximized().then((flag) => {
-      if (!flag) setIsWindowMaximized(false);
+      flag ? setIsWindowMaximized(true) : setIsWindowMaximized(false);
     });
   };
 

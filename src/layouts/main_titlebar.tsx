@@ -5,7 +5,7 @@ import {
   useTauriVersion,
   useTauriWindow,
 } from "@hooks/use_tauri";
-import { useEffect, useRef, useState } from "react";
+import { ReactNode, useEffect, useRef, useState } from "react";
 import {
   CloseTwoTone,
   CropSquareTwoTone,
@@ -51,7 +51,7 @@ const MainTitle = () => {
     },
   };
 
-  const genBtn = (icon: React.ReactNode, callback: () => void) => () => {
+  const genBtn = (icon: ReactNode, callback: () => void) => () => {
     return (
       <Button size="small" variant="text" sx={buttonStyle} onClick={callback}>
         {icon}

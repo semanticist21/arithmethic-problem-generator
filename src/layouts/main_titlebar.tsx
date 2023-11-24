@@ -15,7 +15,7 @@ import { Box, Button } from "@mui/material";
 import { SxProps, useTheme } from "@mui/material/styles";
 import Exam from "@assets/svgs/exam.svg";
 import { APP_NAME } from "consts/consts";
-import RestoreWindowIcon from "components/molecule/restore_window_icon";
+import RestoreWindowIcon from "components/atoms/restore_window_icon";
 
 // layout styles defined in 'main_title.scss'
 const MainTitle = () => {

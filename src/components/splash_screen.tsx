@@ -15,11 +15,6 @@ export const SplashScreen: FC<SplashScreenProps> = ({ isShow }) => {
       )}
     >
       <CircularProgress />
-      <p className="text-center mt-8 font-semibold">
-        <span>로딩 중입니다.</span>
-        <br />
-        <span>잠시만 기다려주세요...</span>
-      </p>
     </div>
   );
 };

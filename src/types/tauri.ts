@@ -1,6 +1,11 @@
+/**
+ * @description Keys<typeof ...>,
+ */
 export type Keys<T> = T[keyof T];
 
-// https://tauri.app/v1/api/js/event/
+/**
+ * @description https://tauri.app/v1/api/js/event/
+ */
 export const EventTypes = [
   "blur",
   "update",
@@ -12,5 +17,4 @@ export const EventTypes = [
   "move",
   "moved",
   "resized",
-  "foucs",
 ] as const;

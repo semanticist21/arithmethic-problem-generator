@@ -27,8 +27,6 @@ const MainTitle = () => {
   const boxRef = useRef<HTMLDivElement>(null);
   const appWindow = useTauriWindow();
 
-  const [isMaximized, setIsMaximized] = useState<boolean>(false);
-
   // dynamic focus change
   const addAppBlurListener = () => setDynamicBg(theme.palette.grey[700]);
   const addAppFocusDownListener = () => setDynamicBg(theme.palette.grey[900]);
@@ -63,16 +61,8 @@ const MainTitle = () => {
   const minimize = () => appWindow?.minimize();
 
   //FIXME
-  const maximize = () => {
-    appWindow?.maximize();
-    setIsMaximized(true);
-  };
-
-  const unMaximize = () => {
-    appWindow?.unmaximize();
-    setIsMaximized(false);
-  };
-
+  const maximize = () => appWindow?.maximize();
+  const unMaximize = () => appWindow?.unmaximize();
   const close = () => appWindow?.close();
 
   const Minimize = genBtn(<HorizontalRuleTwoTone />, minimize);
@@ -103,7 +93,7 @@ const MainTitle = () => {
       </div>
       <div className="ml-auto">
         <Minimize />
-        {isMaximized ? <UnMaximize /> : <Maximize />}
+        {true ? <UnMaximize /> : <Maximize />}
         <Close />
       </div>
     </Box>

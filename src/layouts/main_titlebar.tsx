@@ -51,9 +51,15 @@ const MainTitle = () => {
     },
   };
 
-  const genBtn = (icon: ReactNode, callback: () => void) => () => {
+  const genBtn = (icon: ReactNode, callback: () => void, id?: string) => () => {
     return (
-      <Button size="small" variant="text" sx={buttonStyle} onClick={callback}>
+      <Button
+        id={id}
+        size="small"
+        variant="text"
+        sx={buttonStyle}
+        onClick={callback}
+      >
         {icon}
       </Button>
     );
@@ -69,10 +75,12 @@ const MainTitle = () => {
   const Maximize = genBtn(<CropSquareTwoTone />, maximize);
   const UnMaximize = genBtn(
     <RestoreWindowIcon
+      parentId="unmaximizeBtn"
       bgColor={dynamicBg}
       hoverColor={theme.palette.grey[700]}
     />,
-    unMaximize
+    unMaximize,
+    "unmaximizeBtn"
   );
   const Close = genBtn(<CloseTwoTone />, close);
 

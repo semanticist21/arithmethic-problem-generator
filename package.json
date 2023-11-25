@@ -27,6 +27,7 @@
     "sharp": "^0.32.6",
     "style-loader": "^3.3.3",
     "tailwind": "^4.0.0",
+    "tailwind-merge": "^2.0.0",
     "tauri": "^0.15.0",
     "typescript-plugin-css-modules": "^5.0.2"
   },

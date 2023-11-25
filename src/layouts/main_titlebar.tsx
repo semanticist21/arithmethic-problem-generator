@@ -38,7 +38,9 @@ const MainTitle = () => {
 
   // styles
   const titleBarStyle: SxProps = {
+    position: "fixed",
     backgroundColor: dynamicBg,
+    zIndex: theme.zIndex.drawer + 1,
   };
 
   const buttonStyle: SxProps = {

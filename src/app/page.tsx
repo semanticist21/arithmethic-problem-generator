@@ -1,15 +1,15 @@
 import { FC } from "react";
-import MainContent from "layouts/main_cotent";
 import MainTitle from "layouts/main_titlebar";
 import MainWrapper from "layouts/main_wrapper";
 import ThemeCustomProvider from "layouts/theme_custom_provider";
+import MainAppPage from "layouts/main_app_page";
 
 const Home: FC = () => {
   return (
     <ThemeCustomProvider>
       <MainWrapper>
         <MainTitle />
-        <MainContent />
+        <MainAppPage />
       </MainWrapper>
     </ThemeCustomProvider>
   );

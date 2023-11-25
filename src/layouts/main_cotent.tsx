@@ -1,6 +1,6 @@
 "use client";
 
-import ContainerWithSplash from "components/container_with_splash";
+import ContainerWithSplash from "components/molecules/container_with_splash";
 import { FC } from "react";
 
 //FIXME

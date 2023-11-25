@@ -21,7 +21,7 @@ import RestoreWindowIcon from "components/atoms/restore_window_icon";
 const MainTitle = () => {
   // state
   const theme = useTheme();
-  const [dynamicBg, setDynamicBg] = useState<string>(theme.palette.grey[900]);
+  const [dynamicBg, setDynamicBg] = useState<string>(theme.palette.grey[200]);
   const version = useTauriVersion();
 
   const boxRef = useRef<HTMLDivElement>(null);
@@ -30,8 +30,8 @@ const MainTitle = () => {
   const [isWindowMaximized, setIsWindowMaximized] = useState<boolean>(false);
 
   // dynamic focus change
-  const addAppBlurListener = () => setDynamicBg(theme.palette.grey[700]);
-  const addAppFocusDownListener = () => setDynamicBg(theme.palette.grey[900]);
+  const addAppBlurListener = () => setDynamicBg(theme.palette.grey[400]);
+  const addAppFocusDownListener = () => setDynamicBg(theme.palette.grey[200]);
 
   useTauriEvent("blur", addAppBlurListener);
   useTauriEvent("focus", addAppFocusDownListener);
@@ -47,7 +47,7 @@ const MainTitle = () => {
     minWidth: "2.5rem",
     padding: 0,
     "&:hover": {
-      backgroundColor: theme.palette.grey[700],
+      backgroundColor: theme.palette.grey[300],
     },
   };
 
@@ -77,7 +77,7 @@ const MainTitle = () => {
     <RestoreWindowIcon
       parentId="unmaximizeBtn"
       bgColor={dynamicBg}
-      hoverColor={theme.palette.grey[700]}
+      hoverColor={theme.palette.grey[300]}
     />,
     unMaximize,
     "unmaximizeBtn"
@@ -110,9 +110,7 @@ const MainTitle = () => {
         <Exam />
         <div className="w-2" />
         <p className="flex">
-          <span className="font-semibold text-sm text-gray-100">
-            {APP_NAME}
-          </span>
+          <span className="font-semibold text-sm text-black">{APP_NAME}</span>
           <span className="w-1" />
           <i className="text-xs self-end text-gray-400">{version}</i>
         </p>

@@ -2,7 +2,7 @@
 
 import { useTitlebarHeight } from "@hooks/use_size";
 import clsx from "clsx";
-import { SplashScreen } from "components/splash_screen";
+import { SplashScreen } from "components/atoms/splash_screen";
 import { FC, PropsWithChildren, useEffect, useState } from "react";
 
 const ContainerWithSplash: FC<PropsWithChildren> = ({ children }) => {

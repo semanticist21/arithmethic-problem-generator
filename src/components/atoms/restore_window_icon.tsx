@@ -48,7 +48,7 @@ const RestoreWindowIcon: FC<RestoreWindowIconProps> = ({
       />
       <div
         className={cn(
-          "absolute top-3.5 left-3 w-3.5 h-3.5 rounded-sm border-2"
+          "absolute top-3.5 left-3 w-3.5 h-3.5 rounded-sm border-2",
         )}
         style={{
           borderColor,

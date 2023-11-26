@@ -11,7 +11,7 @@ export const SplashScreen: FC<SplashScreenProps> = ({ isShow }) => {
     <div
       className={clsx(
         "absolute flex flex-col w-full h-full items-center justify-center",
-        isShow ? "" : "hidden"
+        isShow ? "" : "hidden",
       )}
     >
       <CircularProgress />

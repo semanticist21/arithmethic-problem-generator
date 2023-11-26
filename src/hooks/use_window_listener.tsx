@@ -9,7 +9,7 @@ import { useEffect } from "react";
 const useWindowListener = <K extends keyof HTMLElementEventMap>(
   bindId: string,
   eventType: K,
-  callback?: (this: HTMLElement | Document, ev: HTMLElementEventMap[K]) => any
+  callback?: (this: HTMLElement | Document, ev: HTMLElementEventMap[K]) => any,
 ) => {
   useEffect(() => {
     if (!callback) return;

@@ -20,7 +20,12 @@ export const MainContent: FC = () => {
     getActiveKey() === 0 ? <SettingPage /> : <PrintPage />;
 
   return (
-    <Box id="main-content" component="main" sx={mainContentBoxStyle}>
+    <Box
+      className="select-text"
+      id="main-content"
+      component="main"
+      sx={mainContentBoxStyle}
+    >
       <ActivePage />
     </Box>
   );

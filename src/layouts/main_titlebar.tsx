@@ -82,7 +82,7 @@ const MainTitle = () => {
       hoverColor={theme.palette.grey[300]}
     />,
     unMaximize,
-    "unmaximizeBtn",
+    "unmaximizeBtn"
   );
   const Close = genBtn(<CloseTwoTone />, close);
 

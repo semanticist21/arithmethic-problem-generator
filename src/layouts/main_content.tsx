@@ -1,6 +1,6 @@
 "use client";
 
-import { Box, SxProps, useTheme } from "@mui/material";
+import { Box, SxProps } from "@mui/material";
 import PrintPage from "pages/print_page";
 import SettingPage from "pages/setting_page";
 import { FC } from "react";
@@ -16,8 +16,9 @@ export const MainContent: FC = () => {
     p: 1,
   };
 
-  const ActivePage = () =>
-    getActiveKey() === 0 ? <SettingPage /> : <PrintPage />;
+  // pages arr
+  const pages = [<SettingPage />, <PrintPage />];
+  const ActivePage = () => pages[getActiveKey()];
 
   return (
     <Box

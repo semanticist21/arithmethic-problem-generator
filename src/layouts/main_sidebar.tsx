@@ -19,7 +19,8 @@ export const MainSidebar: FC = () => {
   const theme = useTheme();
   const titleBarHeight = useTitlebarHeight();
 
-  const { activeKey, setActiveKey } = useNavStore();
+  const { getActiveKey, setActiveKey } = useNavStore();
+  const activeKey = getActiveKey();
 
   // sidebar items
   const createSideBarStyle = (index: number) => ({

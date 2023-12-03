@@ -9,7 +9,7 @@ const ThemeCustomProvider: FC<PropsWithChildren> = ({ children }) => {
     typography: {
       fontFamily: ["HIMelody-Regular, Comfortaa"].join(","),
     },
-    drawerWidth: "52px",
+    drawerWidth: "53px",
   });
 
   return (

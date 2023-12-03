@@ -10,6 +10,7 @@ import {
   SxProps,
   useTheme,
 } from "@mui/material";
+import { cn } from "@utils/tailwind";
 import { FC } from "react";
 import useNavStore from "store/nav_store";
 
@@ -18,12 +19,22 @@ export const MainSidebar: FC = () => {
   const theme = useTheme();
   const titleBarHeight = useTitlebarHeight();
 
-  const { setActiveKey } = useNavStore();
+  const { activeKey, setActiveKey } = useNavStore();
 
   // sidebar items
+  const createSideBarStyle = (index: number) => ({
+    color: activeKey === index ? theme.palette.primary.light : "",
+  });
+
   const items = [
-    { text: "옵션", icon: <SettingsTwoTone /> },
-    { text: "인쇄", icon: <PrintTwoTone /> },
+    {
+      text: "옵션",
+      icon: <SettingsTwoTone style={createSideBarStyle(0)} />,
+    },
+    {
+      text: "인쇄",
+      icon: <PrintTwoTone style={createSideBarStyle(1)} />,
+    },
   ];
 
   // sidebar styles
@@ -44,7 +55,12 @@ export const MainSidebar: FC = () => {
     <Drawer variant="persistent" anchor="left" open sx={drawerStyle}>
       <div style={{ height: titleBarHeight }} />
       {items.map((item, index) => (
-        <ListItem key={index} disablePadding sx={itemStyle}>
+        <ListItem
+          className={cn(activeKey === index && "bg-gray-200")}
+          key={index}
+          disablePadding
+          sx={itemStyle}
+        >
           <ListItemButton onClick={createChangeActiveKey(index)}>
             <ListItemIcon className="min-w-0">{item.icon}</ListItemIcon>
           </ListItemButton>

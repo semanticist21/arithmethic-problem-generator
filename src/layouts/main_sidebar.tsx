@@ -53,20 +53,22 @@ export const MainSidebar: FC = () => {
   const createChangeActiveKey = (key: number) => () => setActiveKey(key);
 
   return (
-    <Drawer variant="persistent" anchor="left" open sx={drawerStyle}>
-      <div style={{ height: titleBarHeight }} />
-      {items.map((item, index) => (
-        <ListItem
-          className={cn(activeKey === index && "bg-gray-200")}
-          key={index}
-          disablePadding
-          sx={itemStyle}
-        >
-          <ListItemButton onClick={createChangeActiveKey(index)}>
-            <ListItemIcon className="min-w-0">{item.icon}</ListItemIcon>
-          </ListItemButton>
-        </ListItem>
-      ))}
-    </Drawer>
+    <aside>
+      <Drawer variant="persistent" anchor="left" open sx={drawerStyle}>
+        <div style={{ height: titleBarHeight }} />
+        {items.map((item, index) => (
+          <ListItem
+            className={cn(activeKey === index && "bg-gray-200")}
+            key={index}
+            disablePadding
+            sx={itemStyle}
+          >
+            <ListItemButton onClick={createChangeActiveKey(index)}>
+              <ListItemIcon className="min-w-0">{item.icon}</ListItemIcon>
+            </ListItemButton>
+          </ListItem>
+        ))}
+      </Drawer>
+    </aside>
   );
 };

@@ -106,6 +106,7 @@ const MainTitle = () => {
       data-tauri-drag-region
       ref={boxRef}
       sx={titleBarStyle}
+      component="header"
     >
       <div className="flex items-center cursor-default">
         <div className="w-4" />

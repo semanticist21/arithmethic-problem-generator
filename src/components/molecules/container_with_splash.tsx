@@ -1,7 +1,7 @@
 "use client";
 
 import { useTitlebarHeight } from "@hooks/use_size";
-import clsx from "clsx";
+import { cn } from "@utils/tailwind";
 import { SplashScreen } from "components/atoms/splash_screen";
 import { FC, PropsWithChildren, useEffect, useState } from "react";
 
@@ -16,7 +16,7 @@ const ContainerWithSplash: FC<PropsWithChildren> = ({ children }) => {
   return (
     <div className="relative h-full" style={{ paddingTop: height }}>
       <SplashScreen isShow={showSplash} />
-      <div className={clsx(showSplash ? "hidden" : "")}> {children}</div>
+      <div className={cn(showSplash ? "hidden" : "")}> {children}</div>
     </div>
   );
 };

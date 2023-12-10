@@ -2,11 +2,11 @@ import { useTheme } from "@mui/material";
 import { cn } from "@utils/tailwind";
 import { FC, useEffect, useState } from "react";
 
-export interface RestoreWindowIconProps {
+export type RestoreWindowIconProps = {
   parentId?: string;
   bgColor?: string;
   hoverColor?: string;
-}
+};
 
 const RestoreWindowIcon: FC<RestoreWindowIconProps> = ({
   parentId,

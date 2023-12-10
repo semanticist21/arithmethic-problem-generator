@@ -1,17 +1,17 @@
 import { FC } from "react";
-import clsx from "clsx";
 import { CircularProgress } from "@mui/material";
+import { cn } from "@utils/tailwind";
 
-export interface SplashScreenProps {
+export type SplashScreenProps = {
   isShow: boolean;
-}
+};
 
 export const SplashScreen: FC<SplashScreenProps> = ({ isShow }) => {
   return (
     <div
-      className={clsx(
+      className={cn(
         "absolute flex flex-col w-full h-full items-center justify-center",
-        isShow ? "" : "hidden",
+        isShow ? "" : "hidden"
       )}
     >
       <CircularProgress />

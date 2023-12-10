@@ -14,8 +14,8 @@ import {
 import { Box, Button } from "@mui/material";
 import { SxProps, useTheme } from "@mui/material/styles";
 import Exam from "@assets/svgs/exam.svg";
-import { APP_NAME } from "consts/consts";
 import RestoreWindowIcon from "components/atoms/restore_window_icon";
+import { CONSTS } from "consts/consts";
 
 // layout styles defined in 'main_title.scss'
 const MainTitle = () => {
@@ -119,7 +119,9 @@ const MainTitle = () => {
         <Exam />
         <div className="w-2" />
         <p className="flex">
-          <span className="font-semibold text-sm text-black">{APP_NAME}</span>
+          <span className="font-semibold text-sm text-black">
+            {CONSTS.APP_NAME}
+          </span>
           <span className="w-1" />
           <i className="text-xs self-end text-gray-400">{version}</i>
         </p>

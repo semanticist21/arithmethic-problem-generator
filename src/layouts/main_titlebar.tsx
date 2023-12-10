@@ -5,7 +5,7 @@ import {
   useTauriVersion,
   useTauriWindow,
 } from "@hooks/use_tauri";
-import { ReactNode, useEffect, useRef, useState } from "react";
+import { ReactNode, useCallback, useEffect, useRef, useState } from "react";
 import {
   CloseTwoTone,
   CropSquareTwoTone,
@@ -53,8 +53,8 @@ const MainTitle = () => {
     },
   };
 
-  const genBtn = (icon: ReactNode, callback: () => void, id?: string) => () => {
-    return (
+  const genBtn = (icon: ReactNode, callback: () => void, id?: string) => {
+    const ButtonComponent = () => (
       <Button
         id={id}
         size="small"
@@ -65,6 +65,9 @@ const MainTitle = () => {
         {icon}
       </Button>
     );
+
+    ButtonComponent.displayName = "titleBarBtn";
+    return ButtonComponent;
   };
 
   // window control
@@ -88,16 +91,19 @@ const MainTitle = () => {
 
   // use effects
   // bind resize event
-  const bindResizeEvent = () => {
-    appWindow?.isMaximized().then((flag) => {
-      flag ? setIsWindowMaximized(true) : setIsWindowMaximized(false);
-    });
-  };
+  const bindResizeEvent = useCallback(
+    () => () => {
+      appWindow?.isMaximized().then((flag) => {
+        flag ? setIsWindowMaximized(true) : setIsWindowMaximized(false);
+      });
+    },
+    [appWindow]
+  );
 
   // bind resize event in the first time
   useEffect(() => {
     if (appWindow) appWindow.onResized(bindResizeEvent);
-  }, [appWindow]);
+  }, [appWindow, bindResizeEvent]);
 
   return (
     <Box

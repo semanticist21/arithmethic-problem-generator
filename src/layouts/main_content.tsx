@@ -17,7 +17,7 @@ export const MainContent: FC = () => {
   };
 
   // pages arr
-  const pages = [<SettingPage />, <PrintPage />];
+  const pages = [<SettingPage key={1} />, <PrintPage key={2} />];
   const ActivePage = () => pages[getActiveKey()];
 
   return (

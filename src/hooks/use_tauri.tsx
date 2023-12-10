@@ -12,15 +12,15 @@ import { Keys, EventTypes } from "types/tauri";
  */
 export const useTauriEvent = (
   type: Keys<typeof EventTypes>,
-  callback: () => void,
+  callback: () => void
 ) => {
   useEffect(() => {
     const unsubscribe = listen(`tauri://${type}`, callback);
 
     return () => {
-      unsubscribe.then((unsub) => unsub());
+      unsubscribe.then((unsubscribe) => unsubscribe());
     };
-  }, []);
+  }, [callback, type]);
 };
 
 /**
@@ -32,7 +32,7 @@ export const useTauriWindow = () => {
 
   const setupWindowAfterLoad = () => {
     import("@tauri-apps/api/window").then((imported) =>
-      setAppWindow(imported.appWindow),
+      setAppWindow(imported.appWindow)
     );
   };
 
@@ -49,7 +49,7 @@ export const useTauriVersion = () => {
 
   useEffect(() => {
     import("@tauri-apps/api").then((imported) =>
-      imported.app.getVersion().then((v) => setVersion(v)),
+      imported.app.getVersion().then((v) => setVersion(v))
     );
   }, []);
 

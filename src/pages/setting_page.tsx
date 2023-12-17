@@ -1,15 +1,18 @@
+import {SelectChangeEvent} from '@mui/material'
 import {getUuid} from '@utils/id'
 import OptionSelect from 'components/molecules/option_select'
 import {useState} from 'react'
-import {SelectOptionProps, SelectOptionValueType} from 'types/option'
-import {DocumentType, isDocumentType} from 'types/value'
+import {SelectOptionProps} from 'types/option'
+import {isDocumentType} from 'types/value'
 
 const SettingPage = () => {
   // state props
   const [documentType, setDocumentType] = useState<string>('competition')
 
   // handlers
-  const handleDocumentTypeChange = (value: SelectOptionValueType) => {
+  const handleDocumentTypeChange = (e: SelectChangeEvent) => {
+    const value = e.target.value
+
     if (typeof value !== 'string') return
     if (!isDocumentType(value)) return
 

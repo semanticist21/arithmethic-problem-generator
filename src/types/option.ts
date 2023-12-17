@@ -1,4 +1,5 @@
-import {Dispatch, SetStateAction} from 'react'
+import {SelectChangeEvent} from '@mui/material/Select'
+import {ReactNode} from 'react'
 
 /**
  * @description option value type
@@ -31,7 +32,7 @@ export type InputOptionsProps = OptionBaseProps & {
  */
 export type SelectOptionProps = OptionBaseProps & {
   value: SelectOptionValueType
-  onChange: (value: SelectOptionValueType) => void
+  onChange: (event: SelectChangeEvent, child?: ReactNode) => void
   options: OptionItem<SelectOptionValueType>[]
 }
 

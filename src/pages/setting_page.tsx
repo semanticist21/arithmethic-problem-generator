@@ -1,5 +1,5 @@
 import {SelectChangeEvent} from '@mui/material'
-import {getUuid} from '@utils/id'
+import {getUuid} from '@utils/uuid'
 import OptionSelect from 'components/molecules/option_select'
 import {useState} from 'react'
 import {SelectOptionProps} from 'types/option'

@@ -1,7 +1,7 @@
-import { FC, PropsWithChildren } from "react";
+import {FC, PropsWithChildren} from 'react'
 
-const MainWrapper: FC<PropsWithChildren> = ({ children }) => {
-  return <div id="main-wrapper">{children}</div>;
-};
+const MainWrapper: FC<PropsWithChildren> = ({children}) => {
+  return <div id="main-wrapper">{children}</div>
+}
 
-export default MainWrapper;
+export default MainWrapper

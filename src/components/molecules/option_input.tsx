@@ -1,7 +1,7 @@
-import { OptionProps } from "types/option";
+import {InputOptionsProps, OptionBaseProps} from 'types/option'
 
-const OptionStringInput = <T,>({}: OptionProps<T>) => {
-  return <></>;
-};
+const OptionInput = ({}: InputOptionsProps) => {
+  return <div></div>
+}
 
-export default OptionStringInput;
+export default OptionInput

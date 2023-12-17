@@ -16,6 +16,7 @@
     "@mui/icons-material": "^5.15.0",
     "@mui/material": "^5.15.0",
     "@tauri-apps/api": "^1.5.2",
+    "@types/uuid": "^9.0.7",
     "clsx": "^2.0.0",
     "css-loader": "^6.8.1",
     "next": "^13.5.6",

@@ -1,8 +1,8 @@
-import { FC } from "react";
-import MainTitle from "layouts/main_titlebar";
-import MainWrapper from "layouts/main_wrapper";
-import ThemeCustomProvider from "layouts/theme_custom_provider";
-import MainAppPage from "layouts/main_app_page";
+import {FC} from 'react'
+import MainTitle from 'layouts/main_titlebar'
+import MainWrapper from 'layouts/main_wrapper'
+import ThemeCustomProvider from 'layouts/theme_custom_provider'
+import MainAppPage from 'layouts/main_app_page'
 
 const Home: FC = () => {
   return (
@@ -12,7 +12,7 @@ const Home: FC = () => {
         <MainAppPage />
       </MainWrapper>
     </ThemeCustomProvider>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home

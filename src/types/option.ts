@@ -1,9 +1,44 @@
-import { Dispatch, SetStateAction } from "react";
+import {Dispatch, SetStateAction} from 'react'
 
-export type OptionProps<T> = {
-  title: string;
-  description: string;
-  value: T;
-  setValue: Dispatch<SetStateAction<T>>;
-  disabled?: boolean;
-};
+/**
+ * @description option value type
+ */
+export type OptionValueType = string | number | readonly string[] | boolean
+
+/**
+ * @description select option value type
+ */
+export type SelectOptionValueType = Exclude<OptionValueType, boolean>
+
+/**
+ * @description option component props
+ */
+export type OptionBaseProps = {
+  id: string
+  title: string
+  description: string
+  label: string
+  disabled?: boolean
+}
+
+export type InputOptionsProps = OptionBaseProps & {
+  value: OptionValueType
+  onChange: (value: OptionValueType) => void
+}
+
+/**
+ * @description selectOption component props
+ */
+export type SelectOptionProps = OptionBaseProps & {
+  value: SelectOptionValueType
+  onChange: (value: SelectOptionValueType) => void
+  options: OptionItem<SelectOptionValueType>[]
+}
+
+/**
+ * @description select option item
+ */
+export type OptionItem<T> = {
+  label: string
+  value: T
+}

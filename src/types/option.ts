@@ -1,5 +1,5 @@
 import {SelectChangeEvent} from '@mui/material/Select'
-import {ReactNode} from 'react'
+import {ReactNode, SVGProps} from 'react'
 
 /**
  * @description option value type
@@ -20,6 +20,7 @@ export type OptionBaseProps = {
   description: string
   label: string
   disabled?: boolean
+  icon?: SVGProps<SVGSVGElement>
 }
 
 export type InputOptionsProps = OptionBaseProps & {

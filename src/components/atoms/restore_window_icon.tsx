@@ -27,7 +27,8 @@ const RestoreWindowIcon: FC<RestoreWindowIconProps> = ({parentId, bgColor, hover
 
     parent.addEventListener('mouseenter', onMouseEnter)
     parent.addEventListener('mouseleave', onMouseLeave)
-    ;() => {
+
+    return () => {
       parent.removeEventListener('mouseenter', onMouseEnter)
       parent.removeEventListener('mouseleave', onMouseLeave)
     }

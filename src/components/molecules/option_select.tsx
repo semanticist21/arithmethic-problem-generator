@@ -9,11 +9,18 @@ const OptionSelect = ({id, title, description, value, onChange, disabled, option
 
   return (
     <div className="flex" id={id} title={title}>
-      <label className="flex flex-col" htmlFor={id}>
+      <label className="flex flex-col" htmlFor={id + 'select'}>
         <h2 className="text-blue-500 text-lg">{title}</h2>
         <p>{description}</p>
       </label>
-      <Select id={id} size="small" onChange={onChange} sx={selectStyle} autoWidth>
+      <Select
+        id={id + 'select'}
+        size="small"
+        onChange={onChange}
+        sx={selectStyle}
+        autoWidth
+        defaultValue={options.length ? options[0].value.toString() : undefined}
+      >
         {options.map(option => (
           <MenuItem value={option.value}>{option.label}</MenuItem>
         ))}

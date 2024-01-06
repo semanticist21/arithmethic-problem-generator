@@ -1,4 +1,5 @@
 import {MenuItem, Select, SxProps} from '@mui/material'
+import {getUuid} from '@utils/uuid'
 import {SelectOptionProps} from 'types/option'
 
 const OptionSelect = ({id, title, description, value, onChange, disabled, options}: SelectOptionProps) => {
@@ -22,7 +23,9 @@ const OptionSelect = ({id, title, description, value, onChange, disabled, option
         defaultValue={options.length ? options[0].value.toString() : undefined}
       >
         {options.map(option => (
-          <MenuItem value={option.value}>{option.label}</MenuItem>
+          <MenuItem key={getUuid()} value={option.value}>
+            {option.label}
+          </MenuItem>
         ))}
       </Select>
     </div>

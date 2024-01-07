@@ -1,5 +1,6 @@
 // scss 모듈 타입 지정
 declare module '*.scss'
+declare module '*.docx'
 
 // useTheme() 타입 지정
 import {Theme} from '@mui/material/styles'

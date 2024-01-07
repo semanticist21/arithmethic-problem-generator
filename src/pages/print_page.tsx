@@ -1,4 +1,5 @@
-import FileViewer from 'react-file-viewer';
+import DocView from '@components/molecules/doc_view'
+import docTest from '@dev/example_competition_test.docx'
 
 const PrintPage = () => {
   // options to make.
@@ -15,6 +16,7 @@ const PrintPage = () => {
   return (
     <div>
       <h1>Print Page</h1>
+      <DocView locals={[docTest]} />
     </div>
   )
 }

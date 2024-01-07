@@ -1,5 +1,4 @@
 import DocView from '@components/molecules/doc_view'
-import docTest from '@dev/example_competition_test.docx'
 
 const PrintPage = () => {
   // options to make.
@@ -12,6 +11,8 @@ const PrintPage = () => {
   // 5. 동일 수 제한(4444 등)
   // >> 정답지는 한번에 인쇄할 수 있도록(문제 생성을 계속 선택..)? 좀 더 생각해보자
   // export const DocumnetTypes = ['competition', 'normal', 'children'] as const
+
+  const docTest = require('@dev/example_competition.docx')
 
   return (
     <div>
